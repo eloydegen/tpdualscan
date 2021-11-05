@@ -3,6 +3,18 @@
  
 As [written by](https://lists.debian.org/debian-devel-announce/2016/05/msg00001.html) Debian developer Ben Hutchings in 2015: "gcc for i386 has recently been changed to target 686-class processors and is generating code that will crash on other processors". LLVM is also [not supporting i486](https://reviews.llvm.org/D42154#977976), since it assumes at least the (original) Pentium. Although this might change in the future. Using an older gcc release is the only feasable option at the moment.
 
+### Compilation 
+Compiling an old gcc using a new version of gcc does not seem to be a good idea.That's why I tried using an old Ubuntu release which had the old version still packaged.
+
+Open an Ubuntu 12.04 ISO and run the virtual machine. Replace the apt subdomain in sources.list with `old-releases` and install gcc and gcc-multiplib. Note that the gcc multilib version and gcc needs to be equal.
+
+## Links
+* https://groups.csail.mit.edu/mac/ftpdir/thinkpad/old-archive/HTML/tp-1995/msg01241.html
+* https://www.thinkwiki.org/wiki/WD90C24
+* https://www.linuxjournal.com/article/3429
+
+## Old
+
 ### Compilation instructions
 It is needed to apply some patches to gcc 4.8.2 so it can be built using gcc 9.3.0... 🙃
 
@@ -28,10 +40,3 @@ Also apply these patches:
 * https://patchwork.ozlabs.org/project/gcc/patch/6824253.3U2boEivI2@devpool21/
 * https://stackoverflow.com/a/48647715
 
-### Easier way
-Open an Ubuntu 12.04 ISO and run the virtual machine. Replace the apt subdomain in sources.list with `old-releases` and install gcc and gcc-multiplib. Note that the gcc multilib version and gcc needs to be equal.
-
-## Links
-* https://groups.csail.mit.edu/mac/ftpdir/thinkpad/old-archive/HTML/tp-1995/msg01241.html
-* https://www.thinkwiki.org/wiki/WD90C24
-* https://www.linuxjournal.com/article/3429
